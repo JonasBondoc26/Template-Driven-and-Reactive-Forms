@@ -44,6 +44,35 @@
           #passwordRef="ngModel">
       </div>
 
+      <!-- AGE -->
+      <div class="field-group">
+        <input
+          type="number"
+          class="input-box"
+          name="age"
+          [(ngModel)]="age"
+          required
+          min="1"
+          max="120"
+          placeholder="Enter Age"
+          #ageRef="ngModel">
+      </div>
+
+      <!-- GENDER -->
+      <div class="field-group">
+        <select
+          class="input-box"
+          name="gender"
+          [(ngModel)]="gender"
+          required
+          #genderRef="ngModel">
+          <option value="" disabled>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
       <!-- ROLE SELECT -->
       <div class="field-group">
         <select
@@ -76,6 +105,8 @@
       <h4>Form Submitted Successfully!</h4>
       <p><strong>Username:</strong> {{ username }}</p>
       <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Age:</strong> {{ age }}</p>
+      <p><strong>Gender:</strong> {{ gender }}</p>
       <p><strong>Role:</strong> {{ role }}</p>
     </div>
 
