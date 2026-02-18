@@ -1,0 +1,84 @@
+<div class="container">
+
+  <div class="form-card">
+    <h2 class="title">Template Driven Form</h2>
+
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <!-- USERNAME -->
+      <div class="field-group">
+        <input
+          type="text"
+          class="input-box"
+          name="username"
+          [(ngModel)]="username"
+          required
+          minlength="3"
+          placeholder="Enter Username"
+          #usernameRef="ngModel">
+      </div>
+
+      <!-- EMAIL -->
+      <div class="field-group">
+        <input
+          type="email"
+          class="input-box"
+          name="email"
+          [(ngModel)]="email"
+          required
+          email
+          placeholder="Enter Email"
+          #emailRef="ngModel">
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="field-group">
+        <input
+          type="password"
+          class="input-box"
+          name="password"
+          [(ngModel)]="password"
+          required
+          minlength="6"
+          placeholder="Enter Password"
+          #passwordRef="ngModel">
+      </div>
+
+      <!-- ROLE SELECT -->
+      <div class="field-group">
+        <select
+          class="input-box"
+          name="role"
+          [(ngModel)]="role"
+          required
+          #roleRef="ngModel">
+          <option value="" disabled>Select Role</option>
+          <option value="Admin">Admin</option>
+          <option value="User">User</option>
+          <option value="Guest">Guest</option>
+        </select>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <div class="field-group">
+        <button
+          type="submit"
+          class="btn"
+          [disabled]="userForm.invalid">
+          Submit
+        </button>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success-box" *ngIf="submitted">
+      <h4>Form Submitted Successfully!</h4>
+      <p><strong>Username:</strong> {{ username }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Role:</strong> {{ role }}</p>
+    </div>
+
+  </div>
+
+</div>
